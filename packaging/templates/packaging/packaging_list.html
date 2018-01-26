@@ -1,0 +1,36 @@
+{% extends 'packaging/base.html' %}
+
+{% block title %}Packaging{% endblock %}
+
+{% block content %}
+<div class="section">
+    <div class="card">
+	<div class="card-header">
+	    <p class="card-header-title">Packaging Events</p>
+	</div>
+	<div class="card-content">
+	    <div class="content">
+	        <table class="table">
+		  <th>Date Packaged</th>
+		  <th>Beer Packaged</th>
+		  <th>Format</th>
+		  <th>Quantity</th>
+		  <th>View</th>
+		  <tbody>
+		    {% for packoff in packoffs %}
+		      <tr>
+			<td>{{ packoff.packaging_date }}</td>
+			<td>{{ packoff.packaged_beer }}</td>
+			<td>{{ packoff.packaged_beer_format }}</td>
+			<td>{{ packoff.packaged_quantity|floatformat }}</td>
+			<td><a href="{% url 'packoff_detail' pk=packoff.pk %}">Details</a></td>
+		      </tr>
+		      {% endfor %}
+		  </tbody>
+		</table>  
+	    </div>
+	</div>
+    </div>
+</div>
+
+{% endblock %}
