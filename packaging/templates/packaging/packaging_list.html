@@ -6,7 +6,8 @@
 <div class="section">
     <div class="card">
 	<div class="card-header">
-	    <p class="card-header-title">Packaging Events</p>
+	  <p class="card-header-title">Packaging Events</p>
+	  <a href="{%url 'packoff_new' %}" class="button is-primary">Add New</a>
 	</div>
 	<div class="card-content">
 	    <div class="content">
@@ -28,9 +29,9 @@
 		      {% endfor %}
 		  </tbody>
 		</table>  
-	    </div>
-	</div>
-    </div>
-</div>
+	    </div><!-- end content -->
+	</div><!-- end card-content -->
+    </div><!-- end card -->
+</div><!-- end section -->
 
 {% endblock %}

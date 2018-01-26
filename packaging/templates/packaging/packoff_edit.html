@@ -1,0 +1,56 @@
+{% extends 'packaging/base.html' %}
+
+{% block title %}Create Packaging Event{% endblock %}
+{% block content %}
+<h1 class="title">New Packaging Event</h1>
+<form method="POST">
+  {% csrf_token %}
+  <div class="field">
+    <label for="{{ form.subject.id_for_label }}" class="label">User:</label>
+    <div class="control">
+      <div class="select">
+	{{ form.user }}
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label for="{{ form.subject.id_for_label }}" class="label">Date</label>
+    <div class="control">
+      {{ form.packaging_date }}
+    </div>
+  </div>
+  
+  <div class="field">
+    <label for="{{ form.subject.id_for_label }}" class="label">Beer:</label>
+    <div class="control">
+      <div class="select">
+	{{ form.packaged_beer }}
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label for="{{ form.subject.id_for_label }}" class="label">Format:</label>
+    <div class="control">
+      <div class="select">
+	{{ form.packaged_beer_format }}
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Quantity:</label>
+    <div class="control">
+      {{ form.packaged_quantity }}
+    </div>
+    <p class="help">Enter case or keg quantity</p>
+  </div>
+  <div class="field is-grouped">
+    <div class="control">
+      <button type="submit" class="button is-primary">Save</button>
+    </div>
+    <div class="control">
+      <button class="button is-light">Cancel</button>
+    </div>
+  </div>
+</form>
+{% endblock %}
+

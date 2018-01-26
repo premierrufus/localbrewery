@@ -101,8 +101,7 @@ class PackagingEvent(models.Model):
         ('Pin (5.4g)', 'Pin (5.4g)'),
     )
     packaged_beer_format = models.CharField('Format', max_length=20, choices=PACKAGING_FORMATS, blank=True, default='12oz/CS')
-    packaged_quantity = models.DecimalField(max_digits=5, decimal_places=2, default='0')
-    
+    packaged_quantity = models.DecimalField(max_digits=5, decimal_places=2, default='0')    
 
     def package(self):
         self.save()
