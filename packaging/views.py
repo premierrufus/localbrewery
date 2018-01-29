@@ -7,7 +7,7 @@ from .models import PackagingEvent
 
 
 def home_page(request):
-    return render(request, 'base.html')
+    return render(request, 'packaging/base.html')
 
 
 def packaging_list(request):
