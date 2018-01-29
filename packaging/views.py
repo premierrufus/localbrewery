@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render, get_object_or_404
-from packaging.models import PackagingEvent, BrewingEvent
+from packaging.models import PackagingEvent
 from .forms import PackForm
 
 # Create your views here.
@@ -7,16 +7,6 @@ from .forms import PackForm
 
 def home_page(request):
     return render(request, 'packaging/base.html')
-
-
-def batch_list(request):
-    batches = BrewingEvent.objects.all()
-    return render(request, 'packaging/batch_list.html', {'batches': batches})
-
-
-def batch_detail(request, pk):
-    batch = get_object_or_404(BrewingEvent, pk=pk)
-    return render(request, 'packaging/batch_detail.html', {'batch': batch})    
 
 
 def packaging_list(request):

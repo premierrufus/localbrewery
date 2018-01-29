@@ -20,6 +20,6 @@ from packaging import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^packaging/', include('packaging.urls')),
-    url(r'^brewing/', views.batch_list, name='batch_list'),
+    url(r'^brewing/', include('brewing.urls')),
     url(r'', views.home_page, name='home'),
 ]

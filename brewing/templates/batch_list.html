@@ -1,0 +1,38 @@
+{% extends 'packaging/base.html' %}
+
+{% block title %}Brewing{% endblock %}
+
+{% block content %}
+<div class="section">
+    <div class="card">
+	<div class="card-header">
+	    <p class="card-header-title">Batches</p>
+	</div>
+	<div class="card-content">
+	    <div class="content">
+	        <table class="table">
+		  <th>Date Brewed</th>
+		  <th>Beer Brewed</th>
+		  <th>Gyle</th>
+		  <th>View</th>
+		  <tbody>
+		    {% for batch in batches %}
+		      <tr>
+			<td>{{ batch.brew_date }}</td>
+			<td>{{ batch.brewed_beer }}</td>
+			 {% if batch.gyle2 %}
+			<td>{{ batch.gyle }}, {{ batch.gyle2 }}</td>
+			{% else %}
+			<td>{{ batch.gyle }}</td>
+			{% endif %}
+			<td><a href="{% url 'batch_detail' pk=batch.pk %}">Details</a></td>
+		      </tr>
+		      {% endfor %}
+		  </tbody>
+		</table>  
+	    </div>
+	</div>
+    </div>
+</div>
+
+{% endblock %}
