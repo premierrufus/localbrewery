@@ -2,3 +2,6 @@ db.sqlite3
 geckodriver.log
 __pycache__
 *.pyc
+.DS_Store
+brewing/.DS_Store
+packaging/.DS_Store
