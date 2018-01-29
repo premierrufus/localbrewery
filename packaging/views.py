@@ -1,12 +1,13 @@
 from django.shortcuts import redirect, render, get_object_or_404
-from packaging.models import PackagingEvent
 from .forms import PackForm
+from .models import PackagingEvent
+
 
 # Create your views here.
 
 
 def home_page(request):
-    return render(request, 'packaging/base.html')
+    return render(request, 'base.html')
 
 
 def packaging_list(request):

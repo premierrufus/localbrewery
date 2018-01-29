@@ -22,6 +22,7 @@ class Gyle(models.Model):
 
     
 class BrewingEvent(models.Model):
+    user = models.ForeignKey('auth.User')
     brewed_beer = models.ForeignKey(
         'Beer',
         on_delete=models.CASCADE,
