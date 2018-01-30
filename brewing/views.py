@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .forms import BatchForm
-from .models import BrewingEvent
+from .models import BrewingEvent, Beer
 
 
 def batch_list(request):

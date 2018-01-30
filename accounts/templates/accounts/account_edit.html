@@ -1,60 +1,57 @@
 {% extends 'packaging/base.html' %}
-{% block title %}Create Batch{% endblock %}
+
+{% block title %}Create Account{% endblock %}
+
 {% block content %}
 <div class="section">
     <div class="card">
         <div class="card-header">
-            <p class="card-header-title">Create New Batch</p>
+            <p class="card-header-title">Add New Account</p>
         </div><!-- end card-header-->
         <div class="card-content">
             <div class="content overflow-table">
                 <form method="POST" id="">
                   {% csrf_token %}
-                    <div class="field is-info is-expanded">
-                        <label for="{{ form.subject.id_for_label }}" class="label">Date:</label>
-                        <div class="control">
-                            {{ form.brew_date }}
-                        </div><!-- end control -->
-                    </div><!-- end field -->
                     <div class="field">
                         <label for="{{ form.subject.id_for_label }}" class="label">User:</label>
                         <div class="control is-expanded">
                             <div class="select is-info">
-                               {{ form.user }}
+                                {{ form.user }}
                             </div><!-- end select -->
                         </div><!-- end control -->
                     </div><!-- end field -->
+                    <div class="field is-info is-expanded">
+                        <label for="{{ form.subject.id_for_label }}" class="label">Name:</label>
+                        <div class="control">
+                            {{ form.name }}
+                        </div><!-- end control -->
+                    </div><!-- end field -->
                     <div class="field">
-                        <label for="{{ form.subject.id_for_label }}" class="label">Beer:</label>
+                        <label for="{{ form.subject.id_for_label }}" class="label">Contact:</label>
+                        <div class="control is-expanded">
+                            {{ form.contact }}
+                        </div><!-- end control -->
+                    </div><!-- end field -->
+                    <div class="field">
+                        <label for="{{ form.subject.id_for_label }}" class="label">Status:</label>
                         <div class="control is-expanded">
                             <div class="select is-info">
-                	           {{ form.brewed_beer }}
+                                {{ form.status }}
                             </div><!-- end select -->
                         </div><!-- end control -->
                     </div><!-- end field -->
                     <div class="field">
-                        <label for="{{ form.subject.id_for_label }}" class="label">Gyle:</label>
-                        <div class="control">
-                            <div class="select is-info">
-                	           {{ form.gyle }}
-                            </div><!-- end select -->
+                        <label for="{{ form.subject.id_for_label }}" class="label">Notes:</label>
+                        <div class="control is-expanded">
+                            {{ form.notes }}
                         </div><!-- end control -->
-                    </div><!-- end field -->
-                    <div class="field">
-                        <label class="label">Gyle 2:</label>
-                        <div class="control">
-                            <div class="select is-info">
-                                {{ form.gyle2 }}
-                            </div><!-- end select -->
-                        </div><!-- end control -->
-                        <p class="help"><em>For double batches</em></p>
                     </div><!-- end field -->
                     <div class="field is-grouped">
                         <div class="control">
                             <button type="submit" class="button is-primary">Save</button>
                         </div><!-- end control -->
                         <div class="control">
-                            <a href="/brewing/" class="button is-light">Cancel</a>
+                            <a href="/accounts/" class="button is-light">Cancel</a>
                         </div><!-- end control -->
                     </div>
                 </form>

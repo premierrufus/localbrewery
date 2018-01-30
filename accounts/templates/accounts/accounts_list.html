@@ -1,0 +1,37 @@
+{% extends 'packaging/base.html' %}
+
+{% block title %}Accounts{% endblock %}
+
+{% block content %}
+<div class="section">
+    <div class="card">
+		<div class="card-header">
+		  <p class="card-header-title">Accounts</p>
+		  <a href="{%url 'account_new' %}" class="button is-primary">Add New</a>
+		</div>
+		<div class="card-content">
+	    	<div class="content overflow-table">
+	        	<table class="table is-fullwidth">
+	        		<th>Account Name</th>
+				  	<th>Account Contact</th>
+				  	<th>Account Status</th>
+				  	<th>Notes</th>
+				  	<th>View</th>
+				  	<tbody>
+				  		{% for account in accounts %}
+				  		<tr>
+				  			<td>{{ account.name }}</td>
+							<td>{{ account.contact }}</td>
+							<td>{{ account.status }}</td>
+							<td>{{ account.notes }}</td>
+							<td><a href="{% url 'account_detail' pk=account.pk %}">Details</a></td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+    </div>
+</div>
+
+{% endblock %}

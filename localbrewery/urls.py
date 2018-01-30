@@ -18,6 +18,7 @@ from django.contrib import admin
 from packaging import views
 
 urlpatterns = [
+    url(r'^accounts/', include('accounts.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^packaging/', include('packaging.urls')),
     url(r'^brewing/', include('brewing.urls')),

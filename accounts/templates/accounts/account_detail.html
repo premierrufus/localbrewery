@@ -1,0 +1,35 @@
+{% extends 'packaging/base.html' %}
+
+{% block title %}Account Details{% endblock %}
+
+{% block content %}
+<div class="section">
+    <div class="card">
+		<div class="card-header">
+	  		<p class="card-header-title">
+	  		{{ account.name }}
+	  		</p>
+		</div><!-- end card-header -->
+		<div class="card-content">
+		    <div class="content overflow-table">
+		    	<table class="table">
+		    		<th>Account Name</th>
+				  	<th>Account Contact</th>
+				  	<th>Account Status</th>
+				  	<th>Notes</th>
+				  	<th>Action</th>
+			  		<tbody>
+			  			<tr>
+							<td>{{ account.name }}</td>
+							<td>{{ account.contact }}</td>
+							<td>{{ account.status }}</td>
+							<td>{{ account.notes }}</td>
+							<td><a href="/accounts/">Back</a></td>
+			      		</tr>
+			  		</tbody>
+				</table>  
+		    </div><!-- end content -->
+		</div><!-- end card-content -->
+    </div><!-- end card -->
+</div><!-- end section -->
+{% endblock %}
