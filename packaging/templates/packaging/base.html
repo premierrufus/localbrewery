@@ -4,37 +4,58 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Dashboard{% endblock %}</title>
-    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/united/bulmaswatch.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/spacelab/bulmaswatch.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+    <style>
+      #nav-toggle-state {
+        display: none;
+      }
+
+      #nav-toggle-state:checked ~ .nav-menu {
+        display: block;
+      }
+    </style>
   </head>
   <body>
-    <section class="hero is-primary">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-            Banded Horn
-          </h1>
-          <h2 class="subtitle">
-            Brewflow
-          </h2>
-	</div>
-      </div>	
-    </section>
-    <section class="section columns is-fullheight">
-      <aside class="column is-2 is-narrow-mobile is-fullheight">
-        <p class="menu-label">Navigation</p>
-        <ul class="menu-list">
-	  <li><a href="/">Dashboard</a></li>
-	  <li><a href="/packaging/">Packaging</a></li>
-	  <li><a href="/brewing/">Brewing</a></li>
-	  <li><a>Accounts</a></li>
-	  <li><a>Inventory</a></li>
-	</ul>
-      </aside>
-      <div class="container column is-10">
-	{% block content %}
-	{% endblock %}
+    <!-- start nav -->
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item is-brand" href="/">
+          <img src="https://www.bandedhorn.com/wp-content/uploads/2018/01/lb_logo_trans.png" alt="your logo">
+        </a>
       </div>
-    </section>  
+
+      <!-- Using a <label /> here -->
+      <label class="nav-toggle" for="nav-toggle-state">
+        <span></span>           <!-- ^^^^^^^^^^^^^^^^ -->
+        <span></span>
+        <span></span>
+      </label>
+
+      <!-- This checkbox is hidden -->
+      <input type="checkbox" id="nav-toggle-state" />
+      
+      <div class="nav-right nav-menu">
+        <a class="nav-item" href="/packaging/">
+          Packaging
+        </a>
+        <a class="nav-item" href="/brewing/">
+          Brewing
+        </a>
+        <a class="nav-item" href="/brewing/">
+          Accounts
+        </a>
+        <a class="nav-item" href="/brewing/">
+          Inventory
+        </a>
+      </div>
+    </nav>
+    <!-- end nav --> 
+
+
+    <div class="container column is-10">
+     {% block content %}
+     {% endblock %}
+    </div>
   </body>
 </html>
