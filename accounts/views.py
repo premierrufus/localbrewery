@@ -23,3 +23,16 @@ def account_new(request):
     else:
         form = AccountForm()
     return render(request, 'accounts/account_edit.html', {'form': form})
+
+
+def account_edit(request, pk):
+    account = get_object_or_404(Account, pk=pk)
+    if request.method == "POST":
+        form = AccountForm(request.POST, instance=account)
+        if form.is_valid():
+            account = form.save()
+            account.save()
+            return redirect('account_detail', pk=account.pk)
+    else:
+        form = AccountForm(instance=account)
+    return render(request, 'accounts/account_edit.html', {'form': form})
