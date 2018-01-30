@@ -2,55 +2,66 @@
 
 {% block title %}Create Packaging Event{% endblock %}
 {% block content %}
-<h1 class="title">New Packaging Event</h1>
-<form method="POST">
-  {% csrf_token %}
-  <div class="field">
-    <label for="{{ form.subject.id_for_label }}" class="label">User:</label>
-    <div class="control">
-      <div class="select">
-	{{ form.user }}
-      </div>
-    </div>
-  </div>
-  <div class="field">
-    <label for="{{ form.subject.id_for_label }}" class="label">Date</label>
-    <div class="control">
-      {{ form.packaging_date }}
-    </div>
-  </div>
-  
-  <div class="field">
-    <label for="{{ form.subject.id_for_label }}" class="label">Beer:</label>
-    <div class="control">
-      <div class="select">
-	{{ form.packaged_beer }}
-      </div>
-    </div>
-  </div>
-  <div class="field">
-    <label for="{{ form.subject.id_for_label }}" class="label">Format:</label>
-    <div class="control">
-      <div class="select">
-	{{ form.packaged_beer_format }}
-      </div>
-    </div>
-  </div>
-  <div class="field">
-    <label class="label">Quantity:</label>
-    <div class="control">
-      {{ form.packaged_quantity }}
-    </div>
-    <p class="help">Enter case or keg quantity</p>
-  </div>
-  <div class="field is-grouped">
-    <div class="control">
-      <button type="submit" value="Save" class="button is-primary">Save</button>
-    </div>
-    <div class="control">
-      <button type="reset" value="Disabled" class="button is-light" disabled>Reset</button>
-    </div>
-  </div>
-</form>
+<div class="section">
+    <form method="POST">
+    {% csrf_token %}
+        <div class="card">
+            <div class="card-header">
+                <p class="card-header-title">Create New Packaging Event</p>
+            </div><!-- end card-header-->
+            <div class="card-content">
+                <div class="content overflow-table">
+                    <form method="POST">
+                      {% csrf_token %}
+                        <div class="field is-info is-expanded">
+                            <label for="{{ form.subject.id_for_label }}" class="label">Date:</label>
+                            <div class="control">
+                                {{ form.packaging_date }}
+                            </div><!-- end control -->
+                        </div><!-- end field -->
+                        <div class="field">
+                            <label for="{{ form.subject.id_for_label }}" class="label">User:</label>
+                            <div class="control is-expanded">
+                                <div class="select is-info is-fullwidth">
+                                   {{ form.user }}
+                                </div><!-- end select -->
+                            </div><!-- end control -->
+                        </div><!-- end field -->
+                        <div class="field">
+                            <label for="{{ form.subject.id_for_label }}" class="label">Beer:</label>
+                            <div class="control is-expanded">
+                                <div class="select is-info is-fullwidth">
+                                 {{ form.packaged_beer }}
+                                </div><!-- end select -->
+                            </div><!-- end control -->
+                        </div><!-- end field -->
+                        <div class="field">
+                            <label for="{{ form.subject.id_for_label }}" class="label">Format:</label>
+                            <div class="control">
+                                <div class="select is-info is-fullwidth">
+                                    {{ form.packaged_beer_format }}
+                                </div><!-- end select -->
+                            </div><!-- end control -->
+                        </div><!-- end field -->
+                        <div class="field">
+                            <label class="label">Quantity:</label>
+                            <div class="control is-expanded">
+                                {{ form.packaged_quantity }}
+                            </div><!-- end control -->
+                            <p class="help"><em>Enter case or keg quantity</em></p>
+                        </div><!-- end field -->
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button type="submit" value="Save" class="button is-primary">Save</button>
+                            </div><!-- end control -->
+                            <div class="control">
+                                <button type="reset" value="Disabled" class="button is-light" disabled>Reset</button>
+                            </div><!-- end control -->
+                        </div><!-- end field is-grouped -->
+                    </form>
+                </div><!-- end content -->
+            </div><!-- end card-content -->
+        </div><!-- end card -->
+</div><!-- end section -->
 {% endblock %}
 

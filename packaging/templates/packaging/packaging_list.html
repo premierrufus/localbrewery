@@ -5,32 +5,32 @@
 {% block content %}
 <div class="section">
     <div class="card">
-	<div class="card-header">
-	  <p class="card-header-title">Packaging Events</p>
-	  <a href="{%url 'packoff_new' %}" class="button is-primary">Add New</a>
-	</div>
-	<div class="card-content">
-	    <div class="content overflow-table">
-	        <table class="table is-fullwidth">
-		  <th>Date Packaged</th>
-		  <th>Beer Packaged</th>
-		  <th>Format</th>
-		  <th>Quantity</th>
-		  <th>View</th>
-		  <tbody>
-		    {% for packoff in packoffs %}
-		      <tr>
-			<td>{{ packoff.packaging_date }}</td>
-			<td>{{ packoff.packaged_beer }}</td>
-			<td>{{ packoff.packaged_beer_format }}</td>
-			<td>{{ packoff.packaged_quantity|floatformat }}</td>
-			<td><a href="{% url 'packoff_detail' pk=packoff.pk %}">Details</a></td>
-		      </tr>
-		      {% endfor %}
-		  </tbody>
-		</table>  
-	    </div><!-- end content -->
-	</div><!-- end card-content -->
+		<div class="card-header">
+	  		<p class="card-header-title">Packaging Events</p>
+	  		<a href="{%url 'packoff_new' %}" class="button is-primary">Add New</a>
+		</div><!-- end card-header-->
+		<div class="card-content">
+		    <div class="content overflow-table">
+		        <table class="table is-fullwidth">
+		        	<th>Date Packaged</th>
+		        	<th>Beer Packaged</th>
+		        	<th>Format</th>
+		        	<th>Quantity</th>
+		        	<th>View</th>
+			  		<tbody>
+			    	{% for packoff in packoffs %}
+			      		<tr>
+			      			<td>{{ packoff.packaging_date }}</td>
+							<td>{{ packoff.packaged_beer }}</td>
+							<td>{{ packoff.packaged_beer_format }}</td>
+							<td>{{ packoff.packaged_quantity|floatformat }}</td>
+							<td><a href="{% url 'packoff_detail' pk=packoff.pk %}">Details</a></td>
+			      		</tr>
+			      	{% endfor %}
+			  		</tbody>
+				</table>  
+		    </div><!-- end content -->
+		</div><!-- end card-content -->
     </div><!-- end card -->
 </div><!-- end section -->
 

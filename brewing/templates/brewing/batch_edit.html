@@ -2,54 +2,65 @@
 
 {% block title %}Create Batch{% endblock %}
 {% block content %}
-<h1 class="title">New Batch</h1>
-<form method="POST">
-  {% csrf_token %}
-  <div class="field">
-    <label for="{{ form.subject.id_for_label }}" class="label">User:</label>
-    <div class="control">
-      <div class="select">
-	{{ form.user }}
-      </div>
-    </div>
-  </div>
-  <div class="field">
-    <label for="{{ form.subject.id_for_label }}" class="label">Date</label>
-    <div class="control">
-      {{ form.brew_date }}
-    </div>
-  </div>
-  
-  <div class="field">
-    <label for="{{ form.subject.id_for_label }}" class="label">Beer:</label>
-    <div class="control">
-      <div class="select">
-	{{ form.brewed_beer }}
-      </div>
-    </div>
-  </div>
-  <div class="field">
-    <label for="{{ form.subject.id_for_label }}" class="label">Gyle:</label>
-    <div class="control">
-      <div class="select">
-	{{ form.gyle }}
-      </div>
-    </div>
-  </div>
-  <div class="field">
-    <label class="label">Gyle 2:</label>
-    <div class="control">
-      {{ form.gyle2 }}
-    </div>
-    <p class="help">For double batches</p>
-  </div>
-  <div class="field is-grouped">
-    <div class="control">
-      <button type="submit" class="button is-primary">Save</button>
-    </div>
-    <div class="control">
-      <button class="button is-light">Cancel</button>
-    </div>
-  </div>
-</form>
+<div class="section">
+    <div class="card">
+        <div class="card-header">
+            <p class="card-header-title">Create New Batch</p>
+        </div><!-- end card-header-->
+        <div class="card-content">
+            <div class="content overflow-table">
+                <form method="POST">
+                  {% csrf_token %}
+                    <div class="field is-info is-expanded">
+                        <label for="{{ form.subject.id_for_label }}" class="label">Date:</label>
+                        <div class="control">
+                            {{ form.brew_date }}
+                        </div><!-- end control -->
+                    </div><!-- end field -->
+                    <div class="field">
+                        <label for="{{ form.subject.id_for_label }}" class="label">User:</label>
+                        <div class="control is-expanded">
+                            <div class="select is-info is-fullwidth">
+                               {{ form.user }}
+                            </div><!-- end select -->
+                        </div><!-- end control -->
+                    </div><!-- end field -->
+                    <div class="field">
+                        <label for="{{ form.subject.id_for_label }}" class="label">Beer:</label>
+                        <div class="control is-expanded">
+                            <div class="select is-info is-fullwidth">
+                	           {{ form.brewed_beer }}
+                            </div><!-- end select -->
+                        </div><!-- end control -->
+                    </div><!-- end field -->
+                    <div class="field">
+                        <label for="{{ form.subject.id_for_label }}" class="label">Gyle:</label>
+                        <div class="control">
+                            <div class="select is-info is-fullwidth">
+                	           {{ form.gyle }}
+                            </div><!-- end select -->
+                        </div><!-- end control -->
+                    </div><!-- end field -->
+                    <div class="field">
+                        <label class="label">Gyle 2:</label>
+                        <div class="control">
+                            <div class="select is-info is-fullwidth">
+                                {{ form.gyle2 }}
+                            </div><!-- end select -->
+                        </div><!-- end control -->
+                        <p class="help"><em>For double batches</em></p>
+                    </div><!-- end field -->
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button type="submit" class="button is-primary">Save</button>
+                        </div><!-- end control -->
+                        <div class="control">
+                            <a href="/brewing/" class="button is-light">Cancel</a>
+                        </div><!-- end control -->
+                    </div>
+                </form>
+            </div><!-- end content -->
+        </div><!-- end card-content -->
+    </div><!-- end card -->
+</div><!-- end section -->
 {% endblock %}
