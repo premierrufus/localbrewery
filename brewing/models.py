@@ -34,7 +34,9 @@ class BrewingEvent(models.Model):
     gyle2 = models.ForeignKey(
         'Gyle',
         on_delete=models.CASCADE,
-        related_name='+'
+        related_name='+',
+        blank=True,
+        null=True,
     )
     brew_date = models.DateField(default=timezone.now)
 

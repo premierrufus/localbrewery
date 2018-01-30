@@ -30,3 +30,16 @@ def packoff_new(request):
     else:
         form = PackForm()
     return render(request, 'packaging/packoff_edit.html', {'form': form})
+
+
+def packoff_edit(request, pk):
+    packoff = get_object_or_404(PackagingEvent, pk=pk)
+    if request.method == "POST":
+        form = PackForm(request.POST, instance=packoff)
+        if form.is_valid():
+            packoff = form.save()
+            packoff.save()
+            return redirect('packoff_detail', pk=packoff.pk)
+    else:
+        form = PackForm(instance=packoff)
+    return render(request, 'packaging/packoff_edit.html', {'form': form})

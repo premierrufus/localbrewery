@@ -26,7 +26,10 @@
 							{% else %}
 							<td>{{ batch.gyle }}</td>
 							{% endif %}
-							<td><a href="/brewing/">Back</a></td>
+							<td>
+								<a title="Edit Batch" href="{% url 'batch_edit' pk=batch.pk %}"><span class="icon"><i class="fas fa-edit"></i></span></a>
+								<a title="Go Back" href="/brewing/"><span class="icon"><i class="fas fa-arrow-left"></i></span></a>
+							</td>
 			      		</tr>
 			  		</tbody>
 				</table>  

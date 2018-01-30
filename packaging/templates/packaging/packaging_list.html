@@ -7,7 +7,7 @@
     <div class="card">
 		<div class="card-header">
 	  		<p class="card-header-title">Packaging Events</p>
-	  		<a href="{%url 'packoff_new' %}" class="button is-primary">Add New</a>
+	  		<a title="Add New Packaging Event" href="{%url 'packoff_new' %}" class="button is-primary">Add New</a>
 		</div><!-- end card-header-->
 		<div class="card-content">
 		    <div class="content overflow-table">
@@ -16,7 +16,7 @@
 		        	<th>Beer Packaged</th>
 		        	<th>Format</th>
 		        	<th>Quantity</th>
-		        	<th>View</th>
+		        	<th>Actions</th>
 			  		<tbody>
 			    	{% for packoff in packoffs %}
 			      		<tr>
@@ -24,7 +24,10 @@
 							<td>{{ packoff.packaged_beer }}</td>
 							<td>{{ packoff.packaged_beer_format }}</td>
 							<td>{{ packoff.packaged_quantity|floatformat }}</td>
-							<td><a href="{% url 'packoff_detail' pk=packoff.pk %}">Details</a></td>
+							<td>
+								<a title="View Packaging Event" href="{% url 'packoff_detail' pk=packoff.pk %}"><span class="icon"><i class="fas fa-eye"></i></span></a>
+								<a title="Edit Packaging Event" href="{% url 'packoff_edit' pk=packoff.pk %}"><span class="icon"><i class="fas fa-edit"></i></span></a>
+							</td>
 			      		</tr>
 			      	{% endfor %}
 			  		</tbody>

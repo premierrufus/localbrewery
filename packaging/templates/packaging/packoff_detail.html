@@ -1,6 +1,7 @@
 {% extends 'packaging/base.html' %}
 
 {% block title %}Packoff Details{% endblock %}
+
 {% block content %}
 <div class="section">
     <div class="card">
@@ -14,14 +15,17 @@
 		    		<th>Beer Packaged</th>
 		    		<th>Format</th>
 		    		<th>Quantity</th>
-		    		<th>Action</th>
+		    		<th>Actions</th>
 		    		<tbody>
 		    			<tr>
 		    				<td>{{ packoff.packaging_date }}</td>
 							<td>{{ packoff.packaged_beer }}</td>
 							<td>{{ packoff.packaged_beer_format }}</td>
 							<td>{{ packoff.packaged_quantity|floatformat }}</td>
-							<td><a href="/packaging/">Back</a></td>
+							<td>
+								<a title="Edit Event" href="{% url 'packoff_edit' pk=packoff.pk %}"><span class="icon"><i class="fas fa-edit"></i></span></a>
+								<a title="Go Back" href="/packaging/"><span class="icon"><i class="fas fa-arrow-left"></i></span></a>
+							</td>
 						</tr>
 					</tbody>
 				</table>  

@@ -7,7 +7,7 @@
     <div class="card">
 		<div class="card-header">
 			<p class="card-header-title">Batches</p>
-			<a href="{%url 'batch_new' %}" class="button is-primary">Add New</a>
+			<a title="Add New Batch" href="{%url 'batch_new' %}" class="button is-primary">Add New</a>
 		</div>
 		<div class="card-content">
 			<div class="content overflow-table">
@@ -15,7 +15,7 @@
 					<th>Date Brewed</th>
 					<th>Beer Brewed</th>
 					<th>Gyle</th>
-					<th>View</th>
+					<th>Actions</th>
 					<tbody>
 		    			{% for batch in batches %}
 		    			<tr>
@@ -26,7 +26,10 @@
 		    				{% else %}
 		    				<td>{{ batch.gyle }}</td>
 		    				{% endif %}
-		    				<td><a href="{% url 'batch_detail' pk=batch.pk %}">Details</a></td>
+		    				<td>
+		    					<a title="View Batch Details" href="{% url 'batch_detail' pk=batch.pk %}"><span class="icon"><i class="fas fa-eye"></i></span></a>
+		    					<a title="Edit Batch Details" href="{% url 'batch_edit' pk=batch.pk %}"><span class="icon"><i class="fas fa-edit"></i></span></a>
+		    				</td>
 		    			</tr>
 		    			{% endfor %}
 		    		</tbody>
