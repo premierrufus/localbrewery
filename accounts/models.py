@@ -10,12 +10,12 @@ class Account(models.Model):
 	user = models.ForeignKey('auth.User')
 
 	ACCOUNT_STATUS = (
-		('a', 'Active'),
-		('i', 'Inactive'),
+		('Active', 'Active'),
+		('Inactive', 'Inactive'),
 	)
 
 
-	status = models.CharField('Account Status', max_length=1, choices=ACCOUNT_STATUS, blank=True, default='a')
+	status = models.CharField('Account Status', max_length=20, choices=ACCOUNT_STATUS, blank=True, default='a')
 
 	def __str__(self):
 		return self.name
