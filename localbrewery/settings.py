@@ -25,7 +25,7 @@ SECRET_KEY = '9)z%-2q=%(ibydhr8gb=o7on@*sxu^hidee@d*t-ha)9#g=i7z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://cellar.bhlocal.me', '127.0.0.1']
 
 
 # Application definition
