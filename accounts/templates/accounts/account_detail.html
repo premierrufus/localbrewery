@@ -24,7 +24,10 @@
 							<td>{{ account.contact }}</td>
 							<td>{{ account.status }}</td>
 							<td>{{ account.notes }}</td>
-							<td><a href="/accounts/">Back</a></td>
+							<td>
+								<a title="Edit Account" href="{% url 'account_edit' pk=account.pk %}"><span class="icon"><i class="fas fa-edit"></i></span></a>
+								<a title="Go Back" href="/accounts/"><span class="icon"><i class="fas fa-arrow-left"></i></span></a>
+							</td>
 			      		</tr>
 			  		</tbody>
 				</table>  
