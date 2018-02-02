@@ -84,16 +84,4 @@ class PackagingFormat(models.Model):
     class Meta:
         verbose_name = "Packaging Format"
 
-
-
-
-class Hop(models.Model):
-    name = models.CharField(max_length=50)
-    min = models.PositiveIntegerField
-    max = models.PositiveIntegerField
-    on_hand = models.PositiveIntegerField
-    
-    def __str__(self):
-        return self.name
-
     
