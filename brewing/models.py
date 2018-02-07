@@ -117,7 +117,6 @@ class BrewingEvent(models.Model):
         verbose_name = "Brewing Event"
 
 
-
 #
 # Models
 #
