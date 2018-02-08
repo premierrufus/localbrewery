@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['cellar.bhlocal.me', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'bootstrap_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,3 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+# Login URL
+LOGIN_REDIRECT_URL = '/'

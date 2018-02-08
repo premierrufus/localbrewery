@@ -8,5 +8,5 @@ class BatchForm(forms.ModelForm):
     
     class Meta:
         model = BrewingEvent
-        fields = ('user', 'brewed_beer', 'brew_date', 'gyle', 'gyle2')
+        fields = ('brewer', 'brew_date', 'batch_number')
 

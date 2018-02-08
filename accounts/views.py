@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .models import Account
 from .forms import AccountForm
 
@@ -12,7 +13,7 @@ def account_detail(request, pk):
     account = get_object_or_404(Account, pk=pk)
     return render(request, 'accounts/account_detail.html', {'account': account})    
 
-
+@login_required
 def account_new(request):
     if request.method == "POST":
         form = AccountForm(request.POST)
@@ -24,7 +25,7 @@ def account_new(request):
         form = AccountForm()
     return render(request, 'accounts/account_edit.html', {'form': form})
 
-
+@login_required
 def account_edit(request, pk):
     account = get_object_or_404(Account, pk=pk)
     if request.method == "POST":

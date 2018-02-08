@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .forms import BatchForm
 from .models import BrewingEvent
 
@@ -12,7 +13,7 @@ def batch_detail(request, pk):
     batch = get_object_or_404(BrewingEvent, pk=pk)
     return render(request, 'brewing/batch_detail.html', {'batch': batch})    
 
-
+@login_required
 def batch_new(request):
     if request.method == "POST":
         form = BatchForm(request.POST)
@@ -24,7 +25,7 @@ def batch_new(request):
         form = BatchForm()
     return render(request, 'brewing/batch_edit.html', {'form': form})
 
-
+@login_required
 def batch_edit(request, pk):
     batch = get_object_or_404(BrewingEvent, pk=pk)
     if request.method == "POST":

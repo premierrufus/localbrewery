@@ -35,6 +35,23 @@
         </a>
       </div>
 
+      <div class="nav-center">
+      {% if user.is_authenticated %}
+        <a title="Log Out" class="nav-item" href="{% url 'logout' %}">
+          <span class="icon has-text-success">
+            <i class="fas fa-sign-out-alt"></i>
+          </span>
+
+        </a>
+      {% else %}
+        <a title="Log In" class="nav-item" href="{% url 'login' %}">
+          <span class="icon has-text-warning">
+            <i class="fas fa-sign-in-alt"></i>
+          </span>
+        </a>
+      {% endif %}
+      </div>
+
       <!-- Using a <label /> here -->
       <label class="nav-toggle" for="nav-toggle-state">
         <span></span>           <!-- ^^^^^^^^^^^^^^^^ -->
@@ -46,7 +63,7 @@
       <input type="checkbox" id="nav-toggle-state" />
       
       <div class="nav-menu nav-right">
-        <a class="nav-item is-active" href="/packaging/">
+        <a class="nav-item" href="/packaging/">
           Packaging
         </a>
         <a class="nav-item" href="/brewing/">

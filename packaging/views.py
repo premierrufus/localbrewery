@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .forms import PackForm
 from .models import PackagingEvent
 
@@ -6,8 +7,8 @@ from .models import PackagingEvent
 # Create your views here.
 
 
-def home_page(request):
-    return render(request, 'packaging/base.html')
+# def home_page(request):
+#     return render(request, 'packaging/base.html')
 
 
 def packaging_list(request):
@@ -19,7 +20,7 @@ def packoff_detail(request, pk):
     packoff = get_object_or_404(PackagingEvent, pk=pk)
     return render(request, 'packaging/packoff_detail.html', {'packoff': packoff})
 
-
+@login_required
 def packoff_new(request):
     if request.method == "POST":
         form = PackForm(request.POST)
@@ -31,7 +32,7 @@ def packoff_new(request):
         form = PackForm()
     return render(request, 'packaging/packoff_edit.html', {'form': form})
 
-
+@login_required
 def packoff_edit(request, pk):
     packoff = get_object_or_404(PackagingEvent, pk=pk)
     if request.method == "POST":
