@@ -7,7 +7,7 @@
     <div class="card">
 		<div class="card-header">
 	  		<p class="card-header-title">
-	  		Batch # {{ batch.gyle }} {% if batch.gyle2 %}, {{ batch.gyle2 }} {% endif %} 
+	  		Batch Detail
 	  		</p>
 		</div><!-- end card-header -->
 		<div class="card-content">
@@ -15,17 +15,17 @@
 		    	<table class="table">
 		    		<th>Date Brewed</th>
 			  		<th>Beer Brewed</th>
-			  		<th>Gyle</th>
+			  		<th>Brewer</th>
+			  		<th>Vessel</th>
+			  		<th>Batch Number(s)</th>
 			  		<th>Action</th>
 			  		<tbody>
 			  			<tr>
 							<td>{{ batch.brew_date }}</td>
-							<td>{{ batch.brewed_beer }}</td>
-				 			{% if batch.gyle2 %}
-							<td>{{ batch.gyle }}, {{ batch.gyle2 }}</td>
-							{% else %}
-							<td>{{ batch.gyle }}</td>
-							{% endif %}
+							<td>{{ batch.recipe }}</td>
+							<td>{{ batch.brewer }}</td>
+							<td>{{ batch.vessel }}</td>
+							<td>{% for batch_number in batch.batch_number.all|join:", " %}{{ batch_number }}{% endfor %}</td>
 							<td>
 								<a title="Edit Batch" href="{% url 'batch_edit' pk=batch.pk %}"><span class="icon"><i class="fas fa-edit"></i></span></a>
 								<a title="Go Back" href="/brewing/"><span class="icon"><i class="fas fa-arrow-left"></i></span></a>

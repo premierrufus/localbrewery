@@ -14,18 +14,18 @@
 				<table class="table is-fullwidth">
 					<th>Date Brewed</th>
 					<th>Beer Brewed</th>
-					<th>Gyle</th>
+					<th>Brewer</th>
+					<th>Vessel</th>
+					<th>Batch Number(s)</th>
 					<th>Actions</th>
 					<tbody>
 		    			{% for batch in batches %}
 		    			<tr>
 		    				<td>{{ batch.brew_date }}</td>
-		    				<td>{{ batch.brewed_beer }}</td>
-		    				{% if batch.gyle2 %}
-		    				<td>{{ batch.gyle }}, {{ batch.gyle2 }}</td>
-		    				{% else %}
-		    				<td>{{ batch.gyle }}</td>
-		    				{% endif %}
+		    				<td>{{ batch.recipe }}</td>
+		    				<td>{{ batch.brewer }}</td>
+							<td>{{ batch.vessel }}</td>
+	    					<td>{% for batch_number in batch.batch_number.all|join:", " %}{{ batch_number }}{% endfor %}</td>
 		    				<td>
 		    					<a title="View Batch Details" href="{% url 'batch_detail' pk=batch.pk %}"><span class="icon"><i class="fas fa-eye"></i></span></a>
 		    					<a title="Edit Batch Details" href="{% url 'batch_edit' pk=batch.pk %}"><span class="icon"><i class="fas fa-edit"></i></span></a>
