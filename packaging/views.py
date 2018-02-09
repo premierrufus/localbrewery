@@ -7,10 +7,6 @@ from .models import PackagingEvent
 # Create your views here.
 
 
-# def home_page(request):
-#     return render(request, 'packaging/base.html')
-
-
 def packaging_list(request):
     packoffs = PackagingEvent.objects.all()
     return render(request, 'packaging/packaging_list.html', {'packoffs': packoffs})

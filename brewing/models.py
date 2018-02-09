@@ -68,8 +68,14 @@ from django.template.defaultfilters import slugify
 from django.utils import timezone
 
 
-
+# Global Variables
 SEP = ' | '
+
+
+# Functions
+
+def get_batches(queryset):
+    return ", ".join([str(p) for p in queryset])
 
 # Classes
 
@@ -109,13 +115,13 @@ class BrewingEvent(models.Model):
         ("brandon", "Brandon")
     )
 
-    batch_number = models.ManyToManyField('Batch', help_text="Batch Number(s) associated with this brewing event. ")
-    brewer = models.CharField(_("name of brewer"), max_length=100, choices=NAME)
+    batch_number = models.ManyToManyField('Batch', help_text="Batch Number(s) associated with this brewing event. ", blank=True, null=True)
+    brewer = models.CharField(_("name of brewer"), max_length=100, choices=NAME, blank=True, null=True)
     asst_brewer = models.CharField(_("assistant brewer"), max_length=100, blank=True, 
                                    null=True)
-    recipe = models.ForeignKey('Recipe', on_delete=models.CASCADE, default='')
-    brew_date = models.DateField(default=timezone.now)
-    vessel = models.ForeignKey('Equipment')
+    recipe = models.ForeignKey('Recipe', blank=True, null=True)
+    brew_date = models.DateField(default=timezone.now, blank=True, null=True)
+    vessel = models.ForeignKey('Equipment', blank=True, null=True)
     notes = models.TextField(_("notes"), blank=True, null=True)
 
     """
@@ -123,11 +129,11 @@ class BrewingEvent(models.Model):
     """
     def get_batches(self):        
         return ", ".join([str(p) for p in self.batch_number.all()])
-    get_batches.short_description = 'Batch Number(s)'
+    get_batches.short_description = 'Batch Numbers'
 
 
     def __str__(self):
-        return str(self.brew_date) + SEP + str(self.recipe)
+        return str(self.recipe) + SEP + get_batches(self.batch_number.all())
 
     """
     Meta
